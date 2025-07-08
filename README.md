@@ -1,4 +1,4 @@
-# Game Deals - Taqtile Challenge
+# Steam Game Deals Tracker
 
 ## About
 
