@@ -3,6 +3,8 @@
 ## About
 
 This project is an simplified Steam game deal tracker, implemented using data from a Rest API.
+Check it working here:
+https://snack.expo.dev/@felipegprazeres/steamdealtracker
 
 ## Implementations:
 
