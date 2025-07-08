@@ -1,0 +1,15 @@
+Requisitos Funcionais:
+R1: Barra de pesquisa integrada à API de deals / requisito cumprido e funcional
+R2: Filtro de nome, min e max de valor na pesquisa / requisito cumprido e funcional
+R3: FlatList nos items da lista / requisito cumprido e funcional
+R4: Resultados devem ter: título, imagem do jogo, preço de mercado, preço com desconto e pontuação metacritic / requisito cumprido e funcional
+R5: Estilização com styled-components / requisito cumprido e funcional
+R6: Container do jogo ser clickavel para mandar para a promoção / requisito cumprido e funcional
+
+Requisitos não funcionais:
+RN1: Design baseado no Figma fornecido / design realizado de forma diferente, mas com os mesmos atributos, portanto funcional
+RN2: responsividade web e mobile / alterações de responsividade mobile realizadas, visando funcionalidade total na versão de app
+RN3: fetch da API e mostra dos resultados em arquivos diferentes / cumprido e funcional
+RN4: fazer conversão do valor em $ para R$ usando a cotação localizada da steam / cotação não é sempre seguida pelas empresas de jogos, então valor estaria muitas vezes errado, portanto, requisito ignorado
+RN5: aplicar boas práticas ao projeto, comentando e deixando-o o mais limpo possível / cumprido e funcional
+RN6: Programa funcionar mesmo na ausência de valores minimos e/ou maximos / requisito cumprido e funcional

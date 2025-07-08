@@ -1,0 +1,80 @@
+Tarefas:
+Entender API / 
+-https://www.cheapshark.com/api/1.0/deals?title=batman&storeID=1&upperPrice=15
+-exemplo para entendimento do funcionamento da API:
+  -deals: filtra por apenas promoções, para jogos no geral seria games;
+  -storeID=1: filtra pela loja Steam;
+  -upperPrice: filtra preço máximo;
+  -lowerPrice: filtra preço mínimo;
+  -title=batman: filtra o nome dos jogos para todos o que incluirem a string fornecida;
+  -pageSize=5: máximo de "deals" por página, limitar para melhorar o estilo da página
+
+Aplicar API em exemplo / 
+-exemplo criado utilizando o exemplo da utilização da API no site da API, explicação de utilização de FETCH e RETURN dos resultados da API no site do ReactNative
+-json de resultado apresenta diversas informações, principais são:
+  -title: nome do jogo "bonito";
+  -metacriticScore: pontuação metacritic;
+  -normalPrice: preço fora de promoção;
+  -salePrice: preço promocional;
+  -thumb:  link de acesso à imagem do jogo;
+  -isOnSale: 0 ou 1 e indica se o jogo está em promoção;
+  -savings: porcentagem do desconto.
+-edição de Search.js para exemplo mostrar as informações esperadas do resultado ideal: nome, valor normal, valor promocional, metacriticScore e a image.
+-aplicação de pageSize=5 no fetch para que não haja uma quantidade desnecessária de resultados.
+-visualização android não funcional, com erro "Text strings must be rendered within a <Text> component."
+ -englobamento de text inputs em um modulo text resolve o erro, mas text inputs são invisíveis no mobile.
+ -englobar o resultado mostrado na FlatList em um <View> resolveu o problema.
+ 
+Estudar estrutura do react /
+-estudo focado nas necessidades do projeto:
+  -estruturação do projeto(separação das funções do projeto entre os arquivos usando routers e etc, utilização de funções, FlatList, fetch, tratamento dos dados obtidos da API, entre outros)
+  -styled-components para implementar o design com base no Figma (design de exemplo criado seguindo o tutorial da Alura, utilizando uma aparência semelhante a da própria steam);
+  -mudança do funcionamento do projeto, transferindo os campos de input e etc para o APP.js, utilizando de routers para realizar a integração dos arquivos e deixando apenas o fetch dos dados da API no Search.js. 
+
+Estruturar página básica com API /
+-estilização básica usando os styled-components e usando as cores da própria steam como base, integrando os principais campos e adicionando a mudança de cor do metacriticscore dependendo da nota.
+  -Criação de styled-components que deverão ser usados no futuro, mas não são necessarios;
+  -remoção dos elementos desnecessários presentes no Search.js, efetivação da usabilidade dos campos de input no APP.js e sua devida integração com o Search.js e seu fetch, retornando os dados pedidos ao APP.js e mostrando na tela os resultados.
+  -Adição da fonte OpenSans, passada no Figma como sendo o padrão do projeto.
+  -Alteração do styled do projeto para ser mais bonito e arrumar a paleta de cores para ser parecida com a da Steam.
+  -Ao digitar qualquer coisa, NoResults é ativado e mostra que não há resultados, mesmo sem apertar o botão;
+    -Problema arrumado adicionando outra variavel hasSearched para controlar quando o o botão é apertado;
+
+Integrar requisitos funcionais à página básica /
+-Todos requisitos funcionais cumpridos na página:
+ -R1: Barra de pesquisa integrada a Search.js que faz um fetch da API e um request dos dados de acordo com o filtro e retorna uma lista com os dados selecionados;
+ -R2: Filtros integrados a SearchBar que filtram a requisição da função Search à API;
+ -R3: Items retornados da API dispostos em uma lista FlatList;
+ -R4: Seção de Resultados com todas as informações necessárias segundo o ReadME e Figma;
+ -R5: Estilização do programa inteiro realizada com styled-components;
+ -R6: Container do jogo clickavel para maior responsividade, adicionar possível animação para web;
+
+Realizar estilização da página a partir do Figma /
+-Reestruturação da disposição dos elementos do resultados, para ser como a do design no Figma.
+-melhorias gerais no design para maior qualidade visual e de UX/UI.
+-alterações no design, mantendo os atributos do Figma, mas, utilizando outra paleta de cores.
+-alteração nas cores para seguir a mesma lógica do design no Figma
+-Adicionada a logo no lugar do título, feitas outras alterações nas cores para promover a qualidade visual.
+-Campos de valor maximo e minimo invertidos em relação ao design do Figma para seguir a lógica padrão (qual o valor maximo que posso pagar? qual o valor minimo que quero pagar?.
+-Mudança de todos os campos de texto to projeto para a fonta OpenSans.
+-Design finalizado.
+
+Integrar requisitos não funcionais à página /
+ -Comentar o projeto para melhorar sua legibilidade;
+ -adicionado funcionalidade para caso o usuário não digite valores, a pesquisa ainda ocorra, estipulando valores máximos (1000 doláres) e valores minimos (0 dólares);
+ -como o objetivo do programa é procurar promoções(sales) de jogos, jogos fora de promoção não aparecem mais nas buscas, filtrando por apenas os que estão em promoção;
+ -ordenação das promoções com base no ranking próprio da API, e não por valores(desconto ou %);
+ -limpeza do código, deixando-o mais claro e legível;
+ 
+Revisar requisitos /
+-testes nos aplicativos mobile revelaram certos problemas de responsividade, problemas esses resolvidos utilizando algumas funções especificas do react (TouchableOpacity, Linking, KeyboardAvoidingView, ScrollView, Platform, TouchableWithoutFeedback, Keyboard) que limitam alguns estilos à visão mobile. Responsividade no IOS pior do que os outros, ao apertar o botão de buscar (caso nenhum dos campos estejam preenchidos) o botão sobe e fica por cima dos campos de valor, entretanto, ainda é possível clicar nos campos e qualquer digitação arruma o problema;
+-requisitos revisados e todos funcionais
+-alteração posterior: isOnSale voltou a funcionar na API, portanto, editei o sistema de retirar os jogos que não estão em promoção usando o próprio dado da API
+
+Implementação de feedbacks /
+-tirar redundâncias no design
+-jogos fora de promoção com menos destaque e sem a porcentagem
+-tirar condições da filtragem que impediam controle total do usuario
+-separação do estilo em arquivo separado
+-pesquisa inicial mostrando exemplos de promoções
+-sem preço "original" caso não haja desconto
